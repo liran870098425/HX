@@ -72,4 +72,5 @@ class TestProductCoupon:
         api = ProductCategoryListApi()
         resp = api.send()
         pytest.assume(resp.status_code == 200)
+        print(api.json)
         print(f"商品分类 - Response4:", resp.json())

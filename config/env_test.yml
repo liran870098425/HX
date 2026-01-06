@@ -1,0 +1,22 @@
+common:
+  buyerName: [ 'shamo','shamo123' ]
+  buyerPassword: [ 'mtx_9607','mtx9607' ]
+  sellerName: 'shamoseller2'
+  sellerPassword: 'mtx9607'
+  managerName: 'admin'
+  managerPassword: 'mtx908908'
+  captcha: '1512'
+http:
+  basic: http://59.36.173.55:7000
+  buyer: http://59.36.173.55:7002
+  seller: http://59.36.173.55:7003
+  manager: http://59.36.173.55:7004
+db:
+  host: 59.36.173.55
+  username: mtxshop_test
+  password: mtxshamo
+  port: 3306
+redis:
+  host: 59.36.173.55
+  password: mtx
+  port: 6379

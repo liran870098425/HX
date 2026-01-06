@@ -1,0 +1,4 @@
+basic: http://59.36.173.55:7000
+buyer: http://59.36.173.55:7002
+manager: https://test01-platform.huanxin.io:3443
+seller: https://test01-merchant.huanxin.io

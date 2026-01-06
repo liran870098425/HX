@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jan 06 14:27:47 GMT+08:00 2026","Tue Jan 06 14:27:47 GMT+08:00 2026","635","testcase.Testscenario","test_02","TestProductCoupon","","","添加商品",""
+"passed","Tue Jan 06 14:27:47 GMT+08:00 2026","Tue Jan 06 14:27:48 GMT+08:00 2026","134","testcase.Testscenario","test_02","TestProductCoupon","","","上架商品",""
+"passed","Tue Jan 06 14:27:46 GMT+08:00 2026","Tue Jan 06 14:27:47 GMT+08:00 2026","786","testcase.Testscenario","test_02","TestProductCoupon","","","添加商品分类",""
+"passed","Tue Jan 06 14:27:48 GMT+08:00 2026","Tue Jan 06 14:27:48 GMT+08:00 2026","221","testcase.Testscenario","test_02","TestProductCoupon","","","添加优惠券",""

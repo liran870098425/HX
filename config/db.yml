@@ -1,0 +1,5 @@
+host: 192.168.3.161
+port: 3306
+username: test_mall
+password: dev_Test_2025
+database: mall

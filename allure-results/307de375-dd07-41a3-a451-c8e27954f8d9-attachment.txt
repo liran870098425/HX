@@ -1,0 +1,37 @@
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:29] - ======================================================
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:30] - 接口url:https://test01-merchant.huanxin.io/api/api/admin/merchant/login
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:31] - 接口method:post
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:32] - 接口headers:{'Authorization': ''}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:33] - 接口params:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:34] - 接口data:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:35] - 接口json:{'account': 'admin1', 'pwd': 123456}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:36] - 接口files:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":{"account":"admin1","realName":"测试账号","isSms":false,"leftTopLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/20/0b6731c263094f8f8abbe408f34a7424se4jv4a75o.jpg","leftSquareLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/19/e1bbc34364ad4ce693f5b8f1434461fbx33hc14w8s.jpg","merId":77,"merchantCompanyName":null,"centState":null,"host":null,"port":null,"wsPort":null,"username":null,"password":null,"clientId":null,"userGroup":null,"token":"merchant8ea1885452bd49c4a946d0a231085cee"}}
+2025-12-29 17:47:57 [32mINFO[0m [apiautotest] [conftest.py] [aalogger_init:58] - 日志初始化成功
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:29] - ======================================================
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/login
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:31] - 接口method:post
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:32] - 接口headers:{'Authorization': '', 'Content-Type': 'application/json', 'referer': 'https://test01-platform.huanxin.io:3443/login?redirect=/'}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:33] - 接口params:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:34] - 接口data:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:35] - 接口json:{'account': 'admin', 'pwd': 123456, 'key': 'c75cb14027eef222346411520938688f', 'code': '', 'captcha': {'captchaVerification': '', 'secretKey': '', 'token': ''}}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:36] - 接口files:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":{"account":"admin","realName":"超级管理员","isSms":false,"leftTopLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/20/0b6731c263094f8f8abbe408f34a7424se4jv4a75o.jpg","leftSquareLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/19/e1bbc34364ad4ce693f5b8f1434461fbx33hc14w8s.jpg","merId":0,"merchantCompanyName":null,"centState":null,"host":"test01-platform.huanxin.io","port":1888,"wsPort":4444,"username":"admin","password":"platform45d69af14a1c474ca06936869b5e9945","clientId":"e675c02c50434f1fa0fdcced58191d72@admin","userGroup":null,"token":"platform45d69af14a1c474ca06936869b5e9945"}}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:29] - ======================================================
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/admin/platform/coupon/add
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:31] - 接口method:post
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:32] - 接口headers:{'Authorization': 'platform45d69af14a1c474ca06936869b5e9945', 'Content-Type': 'application/json', 'referer': 'https://test01-platform.huanxin.io:3443/login?redirect=/'}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:33] - 接口params:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:34] - 接口data:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:35] - 接口json:{'ratio': '11', 'useGoods': 1, 'id': '', 'provinces': [], 'cities': [], 'districts': [], 'name': '优惠券名称', 'category': 7, 'money': 1, 'minPrice': 0, 'receiveType': 1, 'subsidyType': 0, 'isSuperposition': False, 'subsidyManner': 0, 'isTimeReceive': True, 'receiveStartTime': '2025-12-29 00:00:00', 'receiveEndTime': '2025-12-31 23:59:59', 'isFixedTime': True, 'day': 1, 'useStartTime': '2025-12-29 00:00:00', 'useEndTime': '2026-01-02 23:59:59', 'isLimited': False, 'total': 1, 'num': 1, 'isRepeated': False, 'linkedData': None, 'status': True, 'isAutoReceive': True, 'validityTime': ['2025-12-29 00:00:00', '2026-01-02 23:59:59'], 'collectionTime': ['2025-12-29 00:00:00', '2025-12-31 23:59:59'], 'regionIds': [], 'lastTotal': '', 'cid': '', 'groupNames': ['123'], 'topTypeId': '', 'warningType': '', 'activityRegulations': [{'title': '', 'content': '活动细则内容', 'headline': '活动细则标题'}], 'useRegistrations': [{'title': '', 'content': '使用须知内容', 'headline': '使用须知标题'}], 'sameProductMaxNum': 3, 'singleProductMaxAmount': 2000}
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:36] - 接口files:None
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:58] - 接口响应状态码:405
+2025-12-29 17:47:57 [35mDEBUG[0m [apiautotest] [client.py] [send:59] - 接口响应body:<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.29.3</center>
+</body>
+</html>

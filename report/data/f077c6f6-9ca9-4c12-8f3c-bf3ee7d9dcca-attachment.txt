@@ -1,0 +1,10 @@
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-merchant.huanxin.io/api/api/admin/merchant/product/up/143772
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'merchant0337d86b7e294da28a89c2e2e69d7b6e', 'Content-Type': 'application/json'}
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:35] - 接口json:None
+2026-01-06 14:27:47 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-06 14:27:48 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-06 14:27:48 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":null}

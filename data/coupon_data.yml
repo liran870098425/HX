@@ -1,0 +1,19 @@
+# yaml文件是有规则格式的文件
+# 可以存储多种数据类型，列表、字典
+# 该文件不会只存一个接口的数据，肯定是多个接口的，那么怎么区分不同的接口数据
+# 一个冒号就是一个键值对
+# 一个中括号就是一个列表
+# 一对大括号放key，value那也是一个字典
+# 冒号后一定要有空格
+
+
+
+
+添加优惠券接口:
+  - ['添加平台优惠券,优惠券名称不能为空', 7,{"$.groupNames":""}, 200,'{"code":400,"message":"参数体不能为空","data":null}']
+  - ['添加平台优惠券,优惠券名称参数缺失', 7,{"$.groupNames":'$del'}, 200,'{"code":400,"message":"请添加分组","data":null}']
+  - ['添加平台优惠券,修改标题内容', 7,{"$.useRegistrations[0].content":'标题内容',"$.useRegistrations[0].headline":"字段内容"}, 200,'{"code":200,"message":null,"data":"添加优惠券成功"}']
+  - ['添加平台优惠券,修改标题内容', 7,{"$.useRegistrations[0].content":'标题内容'}, 200,'{"code":200,"message":null,"data":"添加优惠券成功"}']
+  - ['添加平台优惠券，追加参数', 7, {"add_new": {"regionIds":'[110000,110100,110101]'}}, 200, '{"code":400,"message":"参数体不能为空","data":null}']
+#  - ['添加平台优惠券,新增多个字段', 7, {"add_new": {"test_field": "test_value", "number_field": 456, "boolean_field": true}}, 200, '{"code":200,"message":null,"data":"添加优惠券成功"}']
+#  - ['添加平台优惠券,组合使用(先新增再更新)', 7, {"add_new": {"temp_field": "temp_value"}, "$.temp_field": "updated_temp_value"}, 200, '{"code":200,"message":null,"data":"添加优惠券成功"}']

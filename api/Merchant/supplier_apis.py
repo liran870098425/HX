@@ -10,7 +10,7 @@ from common.random_util import cur_timestamp
 
 class SupplierAddAccountApi(BaseMerchantApi):
     """添加供应商账号[增]"""
-    def __init__(self, supplier_name="自动化测试供应商账号", bank_account=None, **kwargs):
+    def __init__(self, bank_account=None, **kwargs):
         super().__init__()
         self.url = f'{self.host}/api/admin/merchant/supplier/add/account'
         self.method = 'post'
@@ -18,14 +18,14 @@ class SupplierAddAccountApi(BaseMerchantApi):
         if bank_account is None:
             bank_account = [
                 {
-                    "accountNumber": "6666 666",
+                    "accountNumber": cur_timestamp(),
                     "bankName": "21"
                 }
             ]
         
         default_data = {
             "bankAccount": bank_account,
-            "supplierName": supplier_name
+            "supplierName": f"供应商{cur_timestamp()}"
         }
         
         default_data.update(kwargs)
@@ -89,3 +89,33 @@ class SupplierDeleteAccountApi(BaseMerchantApi):
         self.json = {
             "supplierId": supplier_id
         }
+
+class SupplierBrandAddApi(BaseMerchantApi):
+    """添加供应商品牌【增】"""
+    def __init__(self, supplier_id, brand_id):
+        super().__init__()
+        self.url = f'{self.host}/api/admin/merchant/supplier/brand/add'
+        self.method = 'post'
+        self.json = {
+                "town": "",
+                "village": "",
+                "name": "",
+                "phone": "",
+                "work": "",
+                "city": "",
+                "district": "",
+                "province": "",
+                "supplierName": "",
+                "cityCode": 0,
+                "townCode": 0,
+                "districtCode": 0,
+                "provinceCode": 0,
+                "userId": "",
+                "brandIds": [
+                    brand_id # 品牌ID
+                ],
+                "regionId": "",
+                "categoryId": 0,
+                "flag": None,
+                "supplierId": supplier_id # 供应商ID
+            }

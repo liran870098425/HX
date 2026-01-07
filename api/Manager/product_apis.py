@@ -5,8 +5,8 @@
 # @Time     :  13:21
 # @Copyright: 焕新生活
 from api.base_api import BaseManagerApi
-from common.random_util import cur_timestamp, rdm_five_digit
-
+from common.random_util import cur_timestamp, rdm_five_digit, rdm_four_digit
+import datetime
 
 class ProductListApi(BaseManagerApi):
     """根据商品id查询【查】"""
@@ -121,7 +121,7 @@ class ProductGuaranteeDeleteApi(BaseManagerApi):
 
 class ProductBrandAddApi(BaseManagerApi):
     """新增品牌【增】"""
-    def __init__(self, name="自动化新增品牌", sort=1, icon="", category_id_data=None):
+    def __init__(self,  sort=1, icon="", category_id_data=None):
         if category_id_data is None:
             category_id_data = [4785]
         super().__init__()
@@ -130,9 +130,9 @@ class ProductBrandAddApi(BaseManagerApi):
         self.json = {
             "sort": sort,
             "icon": icon,
-            "name": name,
+            "name": f"新增品牌{rdm_five_digit()}",
             "categoryIdData": category_id_data,
-            "categoryIds": ",".join(map(str, category_id_data))
+            "categoryIds": category_id_data
         }
 
 
@@ -172,78 +172,24 @@ class ProductBrandDeleteApi(BaseManagerApi):
 
 class ProductTagSaveApi(BaseManagerApi):
     """新增标签【增】"""
-    def __init__(self, tag_name="自动化", tag_note="这是说明", sort=1, play_products="141495"):
+    def __init__(self, play_products,product = "category", tag_note="这是说明", sort=1):
         super().__init__()
+        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        current_plus_2_days = (datetime.datetime.now() + datetime.timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')
         self.url = f'{self.host}/api/admin/platform/producttag/save'
         self.method = 'post'
         self.json = {
-            "tagName": tag_name,
-            "timerange": ["{{date_recent}}", "{{date_soon}}"],
+            "tagName": rdm_four_digit(),
+            "timerange": [current_time, current_plus_2_days],
             "sort": sort,
-            "playType": "product",
-            "playProducts": play_products,
+            "playType": product, # 商品参与类型,默认指定分类
+            "playProducts": play_products, # 商品分类id
             "position": 0,
-            "proBrandList": [
-                {
-                    "id": 141495,
-                    "image": "https://oss-dev.likehuanxin.com:7460/cd-huanxin-test/crmebimage/public/product/2025/07/28/49dbec69cc9347359fca6471ab3d32859g34p7e7mf.jpg",
-                    "name": "自动化测试专用商品（勿动）",
-                    "price": "100.00",
-                    "stock": 29962,
-                    "isShow": True,
-                    "specType": True,
-                    "merName": "焕新生活",
-                    "merCategoryId": None,
-                    "categoryId": 4785,
-                    "merStarLevel": 4,
-                    "categoryName": "测试三级",
-                    "brandId": 6888,
-                    "attrValue": [
-                        {
-                            "id": 390557,
-                            "productId": 141495,
-                            "sku": "大号【50*40*50cm】,蓝色条纹【110L】2个装",
-                            "stock": 9962,
-                            "sales": 38,
-                            "price": "100.00",
-                            "image": "https://oss-dev.likehuanxin.com:7460/cd-huanxin-test/crmebimage/public/product/2025/07/28/49dbec69cc9347359fca6471ab3d32859g34p7e7mf.jpg",
-                            "cost": "80.00",
-                            "barCode": "",
-                            "otPrice": "90.00",
-                            "weight": "0.00",
-                            "volume": "0.00",
-                            "brokerage": 0,
-                            "brokerageTwo": 0,
-                            "type": 0,
-                            "quota": 0,
-                            "quotaShow": 0,
-                            "attrValue": "{\"尺寸\":\"大号【50*40*50cm】\",\"颜色分类\":\"蓝色条纹【110L】2个装\"}",
-                            "isDel": False,
-                            "version": 68,
-                            "masterId": 0,
-                            "isCallback": False,
-                            "expand": "",
-                            "cdkeyId": 0,
-                            "model": "",
-                            "brokerageMoney": "0.00",
-                            "brokerageRate": "0.00",
-                            "procurePrice": "0.00",
-                            "procureLowNum": 0,
-                            "fullCode": "",
-                            "skuNo": "J5PJ-JHPJ-JDPJ-082Q-M0L8"
-                        }
-                    ],
-                    "sales": 38,
-                    "ficti": 41,
-                    "unitName": "件",
-                    "amount": "0.00",
-                    "ratio": "0.00"
-                }
-            ],
-            "status": 0,
+            "proBrandList": [play_products],
+            "status": 1,
             "tagNote": tag_note,
-            "startTime": "{{date_recent}}",
-            "endTime": "{{date_soon}}"
+            "startTime": current_time,
+            "endTime": current_plus_2_days
         }
 
 

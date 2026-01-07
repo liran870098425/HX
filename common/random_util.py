@@ -65,8 +65,14 @@ def rdm_five_digit():
     five_digit_num = random.randint(10000, 99999)
     return five_digit_num
 
-
-
+# 新增一个函数，生成一个4位的随机数
+def rdm_four_digit():
+    """
+    生成一个五位的随机数
+    :return: 五位随机数
+    """
+    four_digit_num = random.randint(1000, 9999)
+    return four_digit_num
 if __name__ == '__main__':
     print(rdm_phone_number())
     print(cur_date_time())

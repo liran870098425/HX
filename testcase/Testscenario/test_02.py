@@ -8,10 +8,12 @@
 import allure
 import pytest
 from api.Manager import ManagerCouponAddApi ,ProductCategoryListApi
-from api.Manager.product_apis import MerchantPortAttributeAddApi, MerchantPortAttributeListApi
+from api.Manager.product_apis import MerchantPortAttributeAddApi, MerchantPortAttributeListApi, ProductTagSaveApi, \
+    ProductBrandListApi, ProductBrandAddApi
 from api.Manager.product_category_apis import ProductCategoryAddApi
 from api.Merchant.brand_apis import BrandAddApi
 from api.Merchant.product_apis import ProductSaveApi, ProductUpApi
+from api.Merchant.supplier_apis import SupplierAddAccountApi, SupplierAccountListApi, SupplierBrandAddApi
 from common.json_util import extract_json
 
 
@@ -23,6 +25,9 @@ class TestProductCoupon:
     product_id = '' #商品ID
     main_attr = '' # 重要属性ID
     second_attr = '' # 次要属性ID
+    supplier_id = ''  #供应商ID
+    categoryIds =  '' # 品牌ID
+    supplier_name =  '' # 供应商名称
     @allure.title('添加商品分类')
     def test_product_category_add(self,db_init):
         allure.dynamic.title('添加商品分类')
@@ -44,12 +49,13 @@ class TestProductCoupon:
         TestProductCoupon.pid = db_init.select('select id from eb_product_category where name = %s limit 1', (api.json['name'],))[0]['id']
         pytest.assume(resp.status_code == 200)
 
-    @allure.title('添加品牌')
+    @allure.title('商户添加品牌')
     def test_product_brand_add(self,db_init):
         api = BrandAddApi()
         # 修复参数设置，使用正确的键名
         api.json['categoryIds'] = TestProductCoupon.pid
         api.json['categoryIdData'] = [TestProductCoupon.pid]
+        # TestProductCoupon.brand_name = extract_json(api.json,'name')
         resp = api.send()
         # 检查响应状态码和内容类型，避免JSONDecodeError
         pytest.assume(resp.status_code == 200)
@@ -59,6 +65,49 @@ class TestProductCoupon:
         else:
             print(f"添加品牌 - Response: 空响应")
             pytest.assume(False, "API返回空响应")
+    @allure.title('平台添加品牌')
+    def test_product_brand_add_platform(self,db_init):
+        api = ProductBrandAddApi(category_id_data = TestProductCoupon.pid)
+        resp = api.send()
+        pytest.assume(resp.status_code == 200)
+        TestProductCoupon.brand_name = extract_json(api.json, 'name')
+        print(f'品牌名称：{TestProductCoupon.brand_name}')
+        print(f"获取平台品牌 - Response:", resp.json())
+    @allure.title('获取品牌列表')
+    def test_product_brand_list(self):
+        api = ProductBrandListApi(name= TestProductCoupon.brand_name)
+        resp = api.send()
+        TestProductCoupon.categoryIds = extract_json(resp.json(),'$.data.list[0].id')
+        print(f'品牌ID：{TestProductCoupon.categoryIds}')
+        pytest.assume(resp.status_code == 200)
+        print(f"获取品牌 - Response:", resp.json())
+
+    @allure.title('添加商品标签')
+    def test_product_tag_add(self, db_init):
+        api = ProductTagSaveApi(play_products = TestProductCoupon.pid)
+        resp = api.send()
+        pytest.assume(resp.status_code == 200)
+        print(f"添加商品标签 - Response:", resp.json())
+    @allure.title('添加供应商')
+    def test_product_supplier_add(self, db_init):
+        api = SupplierAddAccountApi()
+        TestProductCoupon.supplier_name = extract_json(api.json, 'supplierName')
+        resp = api.send()
+        pytest.assume(resp.status_code == 200)
+        print(f"添加供应商 - Response:", resp.json())
+    @allure.title('获取供应商品列表')
+    def test_product_supplier_list(self):
+        api = SupplierAccountListApi(keyword = TestProductCoupon.supplier_name)
+        resp = api.send()
+        TestProductCoupon.supplier_id = extract_json(resp.json(), 'data.list[0].supplierId')
+        pytest.assume(resp.status_code == 200)
+        print(f"获取供应商品列表 - Response:", resp.json())
+    @allure.title('添加品牌-供应商')
+    def test_product_brand_supplier_add(self):
+        api = SupplierBrandAddApi(supplier_id=TestProductCoupon.supplier_id, brand_id = TestProductCoupon.categoryIds)
+        resp = api.send()
+        pytest.assume(resp.status_code == 200)
+        print(f"添加品牌-供应商 - Response:", resp.json())
     @allure.title('添加商品属性')
     def test_product_attr_add(self, db_init):
         api = MerchantPortAttributeAddApi(categoryId=TestProductCoupon.pid)

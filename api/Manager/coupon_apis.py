@@ -14,7 +14,7 @@ class ManagerCouponAddApi(BaseManagerApi):
     def __init__(self,category):
 
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/coupon/add'
+        self.url = f'{self.host}/api/admin/platform/coupon/add'
         self.method = 'post'
         # 在实例化时动态生成时间值，确保每次创建实例时都获取最新时间
         # 由于cur_date_time()不接受参数，我们需要使用datetime来格式化当前时间
@@ -89,7 +89,7 @@ class ManagerDeleteCouponApi(BaseManagerApi):
     # 删除优惠券,id为优惠券id
     def __init__(self, id):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/coupon/delete'
+        self.url = f'{self.host}/api/admin/platform/coupon/delete'
         self.method = 'post'
         self.json = {"id": id, "loseEfficacyStatus": 1}
 
@@ -97,7 +97,7 @@ class ManagerCouponListApi(BaseManagerApi):
     # 获取优惠券列表
     def __init__(self):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/coupon/subsidy/list?page=1&limit=80&category=&name=&status=&receiveType=&subsidyType=&temp='
+        self.url = f'{self.host}/api/admin/platform/coupon/subsidy/list?page=1&limit=80&category=&name=&status=&receiveType=&subsidyType=&temp='
         self.method = 'get'
 
 # 关闭优惠券

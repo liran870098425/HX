@@ -13,7 +13,7 @@ class ManagerLoginApi(BaseManagerApi):
 
     def __init__(self,username,password):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/login'
+        self.url = f'{self.host}/api/admin/platform/login'
         self.method='post'
         self.json={
             "account": username,

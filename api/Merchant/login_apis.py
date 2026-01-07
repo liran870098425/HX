@@ -12,7 +12,7 @@ from api.base_api import BaseMerchantApi
 class  MerchantLoginApi(BaseMerchantApi):
      def __init__(self,username,password):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/login'
+        self.url = f'{self.host}/api/admin/merchant/login'
         self.method='post'
         self.json={
             "account": username,

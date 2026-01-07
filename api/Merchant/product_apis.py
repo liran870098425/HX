@@ -10,9 +10,9 @@ from common.random_util import cur_timestamp, rdm_five_digit
 
 class ProductSaveApi(BaseMerchantApi):
     """添加商品【增】"""
-    def __init__(self, name="接口自动化测试商品", **kwargs):
+    def __init__(self, main_attrId, second_attrId):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/save'
+        self.url = f'{self.host}/api/admin/merchant/product/save'
         self.method = 'post'
         # 默认商品数据
         self.json = {
@@ -25,6 +25,18 @@ class ProductSaveApi(BaseMerchantApi):
                         1
                     ],
                     "supplierId": 5216,
+                    "attrMap": {
+                        main_attrId: {
+                            "attrId": main_attrId,
+                            "attrName": "属性标题",
+                            "attrValue": "123"
+                    },
+                        second_attrId: {
+                            "attrId": second_attrId,
+                            "attrName": "次要标题",
+                            "attrValue": "123"
+                    }
+                    },
                     "isGroup": 0,
                     "storeModel": "123",
                     "unitName": "123",
@@ -67,7 +79,7 @@ class ProductListApi(BaseMerchantApi):
     """商品管理列表【查】"""
     def __init__(self, page=1, limit=20, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/list'
+        self.url = f'{self.host}/api/admin/merchant/product/list'
         self.method = 'post'
         
         default_data = {
@@ -92,11 +104,10 @@ class ProductListApi(BaseMerchantApi):
 
 class ProductUpdateApi(BaseMerchantApi):
     """编辑商品【改】"""
-    def __init__(self, product_id, name="接口自动化测试商品", **kwargs):
+    def __init__(self, product_id, main_attrId, second_attrId,name="接口自动化测试商品"):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/update'
+        self.url = f'{self.host}/api/admin/merchant/product/update'
         self.method = 'post'
-        
         default_data = {
             "isPromoteCommission": True,
             "isGroup": 0,
@@ -164,6 +175,18 @@ class ProductUpdateApi(BaseMerchantApi):
             "categoryId": 463,
             "labelIds": [],
             "supplierName": "其他",
+            "attrMap": {
+                main_attrId: {
+                    "attrId": main_attrId,
+                    "attrName": "属性标题",
+                    "attrValue": "123"
+                },
+                second_attrId: {
+                    "attrId": second_attrId,
+                    "attrName": "次要标题",
+                    "attrValue": "123"
+                }
+            },
             "supplierId": 0,
             "guaranteeIds": "1,3,7,8,9,12",
             "merchantGuaranteeId": 323,
@@ -189,8 +212,7 @@ class ProductUpdateApi(BaseMerchantApi):
             "url": "",
             "form": 2
         }
-        
-        default_data.update(kwargs)
+
         self.json = default_data
 
 
@@ -202,7 +224,7 @@ class ProductSetLabelApi(BaseMerchantApi):
         if product_ids is None:
             product_ids = []
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/batch/set/label'
+        self.url = f'{self.host}/api/admin/merchant/product/batch/set/label'
         self.method = 'post'
         
         default_data = {
@@ -218,7 +240,7 @@ class ProductSetFreightTemplateApi(BaseMerchantApi):
     """设置商品运费"""
     def __init__(self, product_id, template_id, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/set/freight/template'
+        self.url = f'{self.host}/api/admin/merchant/product/set/freight/template'
         self.method = 'post'
         
         default_data = {
@@ -234,7 +256,7 @@ class ProductSetBrokerageApi(BaseMerchantApi):
     """设置商品佣金"""
     def __init__(self, product_id, brokerage=0, brokerage_two=0, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/set/brokerage'
+        self.url = f'{self.host}/api/admin/merchant/product/set/brokerage'
         self.method = 'post'
         
         default_data = {
@@ -252,7 +274,7 @@ class ProductInfoApi(BaseMerchantApi):
     """查看商品详情"""
     def __init__(self, product_id, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/info/{product_id}'
+        self.url = f'{self.host}/api/admin/merchant/product/info/{product_id}'
         self.method = 'get'
         
         # 添加查询参数到URL
@@ -267,7 +289,7 @@ class ProductReplyListApi(BaseMerchantApi):
     """查看商品评价"""
     def __init__(self, page=1, limit=20, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/reply/list'
+        self.url = f'{self.host}/api/admin/merchant/product/reply/list'
         self.method = 'get'
         
         # 添加查询参数到URL
@@ -285,7 +307,7 @@ class ProductUpApi(BaseMerchantApi):
     """上架商品"""
     def __init__(self, product_id, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/up/{product_id}'
+        self.url = f'{self.host}/api/admin/merchant/product/up/{product_id}'
         self.method = 'post'
 
 
@@ -303,7 +325,7 @@ class ProductExportApi(BaseMerchantApi):
         if product_ids is None:
             product_ids = []
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/export/export/product'
+        self.url = f'{self.host}/api/admin/merchant/export/export/product'
         self.method = 'post'
         
         default_data = {
@@ -334,7 +356,7 @@ class ProductExportQRCodeApi(BaseMerchantApi):
         if product_ids is None:
             product_ids = []
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/export/product/qrcode'
+        self.url = f'{self.host}/api/admin/merchant/product/export/product/qrcode'
         self.method = 'post'
         
         default_data = {
@@ -363,7 +385,7 @@ class ProductDeleteApi(BaseMerchantApi):
     """删除商品"""
     def __init__(self, product_id, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/delete'
+        self.url = f'{self.host}/api/admin/merchant/product/delete'
         self.method = 'post'
         
         default_data = {
@@ -381,7 +403,7 @@ class ProductCollectionApi(BaseMerchantApi):
         if collection_links is None:
             collection_links = []
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/product/coll-log/batch-add'
+        self.url = f'{self.host}/api/admin/merchant/product/coll-log/batch-add'
         self.method = 'post'
         
         default_data = {
@@ -398,7 +420,7 @@ class ProductCustomExportApi(BaseMerchantApi):
     """自定义导出"""
     def __init__(self, file_name=None, **kwargs):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/merchant/export/product/custom'
+        self.url = f'{self.host}/api/admin/merchant/export/product/custom'
         self.method = 'post'
         
         if file_name is None:

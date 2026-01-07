@@ -17,7 +17,7 @@ class ProductCategoryAddApi(BaseManagerApi):
         """
 
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/product/category/add'
+        self.url = f'{self.host}/api/admin/platform/product/category/add'
         self.method = 'post'
         self.json = {
             "icon":"",
@@ -37,7 +37,7 @@ class ProductCategoryListApi(BaseManagerApi):
     """
     def __init__(self):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/product/category/step/list?productCategoryId=0'
+        self.url = f'{self.host}/api/admin/platform/product/category/step/list?productCategoryId=0'
         self.method = 'get'
 
 class ProductCategoryDeleteApi(BaseManagerApi):
@@ -47,7 +47,7 @@ class ProductCategoryDeleteApi(BaseManagerApi):
     """
     def __init__(self,categoryid):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/product/category/delete/{categoryid}'
+        self.url = f'{self.host}/api/admin/platform/product/category/delete/{categoryid}'
         self.method = 'post'
 
 class ProductCategoryUpdatelApi(BaseManagerApi):
@@ -57,7 +57,7 @@ class ProductCategoryUpdatelApi(BaseManagerApi):
     """
     def __init__(self,categoryid,level):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/product/category/update'
+        self.url = f'{self.host}/api/admin/platform/product/category/update'
         self.method = 'post'
         self.json = {"icon":"https://ceph.huanxin.io:7580/crmebimage/public/product/2025/05/20/efccd48885e542c29217909c5ba8fc9ebopzvkbdqg.png",
                      "name":"礼品",

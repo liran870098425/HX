@@ -104,7 +104,9 @@ if __name__ == '__main__':
     print(json_object)
     json_object = update_value_to_json(json_object,'$.goods_gallery_list[0].sort',1)
     print(json_object)
-
+    # 测试提取功能
+    json_object = extract_json(json_object,'$.goods_gallery_list[0].sort')
+    print(f'提取的结果是:{json_object}')
     # 测试新增的追加功能
     json_object = update_value_to_json(json_object, add_new={"new_field": "new_value", "another_field": "another_value"})
     print(json_object)

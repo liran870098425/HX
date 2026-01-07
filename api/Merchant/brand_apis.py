@@ -5,7 +5,7 @@
 # @Time     :  11:52
 # @Copyright: 焕新生活
 from api.base_api import BaseMerchantApi
-from common.random_util import cur_timestamp
+from common.random_util import cur_timestamp, rdm_five_digit
 
 
 class BrandListApi(BaseMerchantApi):
@@ -32,7 +32,7 @@ class BrandTabsHeadersApi(BaseMerchantApi):
 
 class BrandAddApi(BaseMerchantApi):
     """添加品牌"""
-    def __init__(self, name="测试", sort=0, icon="", category_id_data=None, 
+    def __init__(self, sort=0, icon="", category_id_data=None,
                  category_ids="463", **kwargs):
         super().__init__()
         self.url = f'{self.host}/api/admin/merchant/plat/product/brand/brand/add'
@@ -44,7 +44,7 @@ class BrandAddApi(BaseMerchantApi):
         default_data = {
             "sort": sort,
             "icon": icon,
-            "name": name,
+            "name": f'品牌名称{rdm_five_digit()}',
             "categoryIdData": category_id_data,
             "categoryIds": category_ids
         }

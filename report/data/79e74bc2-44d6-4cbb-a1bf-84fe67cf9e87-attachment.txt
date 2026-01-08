@@ -1,0 +1,51 @@
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-merchant.huanxin.io/api/api/admin/merchant/login
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': '', 'Content-Type': 'application/json'}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'account': 'admin1', 'pwd': 123456}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":{"account":"admin1","realName":"测试账号","isSms":false,"leftTopLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/20/0b6731c263094f8f8abbe408f34a7424se4jv4a75o.jpg","leftSquareLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/19/e1bbc34364ad4ce693f5b8f1434461fbx33hc14w8s.jpg","merId":77,"merchantCompanyName":null,"centState":null,"host":null,"port":null,"wsPort":null,"username":null,"password":null,"clientId":null,"userGroup":null,"token":"merchant5486e7dcc03d4a528fcfabc094976ce0"}}
+2026-01-08 13:17:09 INFO [apiautotest] [conftest.py] [aalogger_init:58] - 日志初始化成功
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/login
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': '', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'account': 'admin', 'pwd': 123456, 'key': 'c75cb14027eef222346411520938688f', 'code': '', 'captcha': {'captchaVerification': '', 'secretKey': '', 'token': ''}}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":{"account":"admin","realName":"超级管理员","isSms":false,"leftTopLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/20/0b6731c263094f8f8abbe408f34a7424se4jv4a75o.jpg","leftSquareLogo":"https://ceph.huanxin.io:7580/crmebimage/public/user/2025/08/19/e1bbc34364ad4ce693f5b8f1434461fbx33hc14w8s.jpg","merId":0,"merchantCompanyName":null,"centState":null,"host":"test01-platform.huanxin.io","port":1888,"wsPort":4444,"username":"admin","password":"platformcf9ddf2c1d65497d87c682d9865f7165","clientId":"07221629b9e14824a8185a10e01d061a@admin","userGroup":null,"token":"platformcf9ddf2c1d65497d87c682d9865f7165"}}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/product/category/add
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'icon': '', 'name': '新增分类40975', 'pid': 0, 'sort': 0, 'type': 1, 'url': '', 'id': 0, 'extra': '', 'level': 1}
+2026-01-08 13:17:09 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":null}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/product/category/add
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'icon': '', 'name': '新增分类75375', 'pid': 5310, 'sort': 0, 'type': 1, 'url': '', 'id': 0, 'extra': '', 'level': 2}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":null}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/product/category/add
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'icon': '', 'name': '新增分类57551', 'pid': 5311, 'sort': 0, 'type': 1, 'url': '', 'id': 0, 'extra': '', 'level': 3}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":null}

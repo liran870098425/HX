@@ -1,0 +1,10 @@
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/product/category/select/attribute/list?categoryId=5312
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:31] - 接口method:get
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:35] - 接口json:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":[{"id":"2009132223042203650","categoryId":5312,"categoryCode":"J6P8","attributeTitle":"主要属性标题82291","attributeType":"UN_TEXT","isRequired":false,"charLimit":10,"other":null,"levelType":1,"sort":0,"createUserId":1,"createTime":"2026-01-08T13:17:04","updateUserId":1,"updateTime":"2026-01-08T13:17:04","delFlag":false},{"id":"2009132223058980866","categoryId":5312,"categoryCode":"J6P8","attributeTitle":"次要属性标题38459","attributeType":"UN_TEXT","isRequired":false,"charLimit":10,"other":null,"levelType":2,"sort":0,"createUserId":1,"createTime":"2026-01-08T13:17:04","updateUserId":1,"updateTime":"2026-01-08T13:17:04","delFlag":false}]}

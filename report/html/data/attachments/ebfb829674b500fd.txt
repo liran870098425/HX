@@ -1,0 +1,10 @@
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/coupon/add
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'ratio': '11', 'useGoods': 1, 'id': '', 'provinces': [], 'cities': [], 'districts': [], 'name': '测试补贴券6660', 'category': 7, 'money': 1, 'minPrice': 0, 'receiveType': 1, 'subsidyType': 0, 'isSuperposition': False, 'subsidyManner': 0, 'isTimeReceive': True, 'receiveStartTime': '2026-01-08 13:17:12', 'receiveEndTime': '2026-01-10 13:17:12', 'isFixedTime': True, 'day': 1, 'useStartTime': '2026-01-08 13:17:12', 'useEndTime': '2026-01-10 13:17:12', 'isLimited': False, 'total': 1, 'num': 1, 'isRepeated': False, 'linkedData': None, 'status': True, 'isAutoReceive': True, 'validityTime': ['2026-01-08 13:17:12', '2026-01-10 13:17:12'], 'collectionTime': ['2026-01-08 13:17:12', '2026-01-10 13:17:12'], 'regionIds': [], 'lastTotal': '', 'cid': '', 'groupNames': ['这个是组名'], 'topTypeId': '', 'warningType': '', 'activityRegulations': [{'title': '', 'content': '这个是内容', 'headline': '这个是活动细'}], 'useRegistrations': [{'title': '', 'content': '这个是使用须知内容', 'headline': '这个是使用须'}], 'sameProductMaxAmount': 2000, 'singleProductMaxAmount': 2000, 'categoryIds': [5312]}
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:13 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:13 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":"添加优惠券成功"}

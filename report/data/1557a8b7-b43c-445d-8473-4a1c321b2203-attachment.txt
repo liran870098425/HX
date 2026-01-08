@@ -1,0 +1,10 @@
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-merchant.huanxin.io/api/api/admin/merchant/supplier/brand/add
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'merchant5486e7dcc03d4a528fcfabc094976ce0', 'Content-Type': 'application/json'}
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'town': '', 'village': '', 'name': '', 'phone': '', 'work': '', 'city': '', 'district': '', 'province': '', 'supplierName': '', 'cityCode': 0, 'townCode': 0, 'districtCode': 0, 'provinceCode': 0, 'userId': '', 'brandIds': [7026], 'regionId': '', 'categoryId': 0, 'flag': None, 'supplierId': 5233}
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":"供应商品牌新增成功"}

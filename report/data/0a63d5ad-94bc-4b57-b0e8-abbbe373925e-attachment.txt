@@ -1,0 +1,10 @@
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-merchant.huanxin.io/api/api/admin/merchant/product/save
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'merchant5486e7dcc03d4a528fcfabc094976ce0', 'Content-Type': 'application/json'}
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'name': '商品10803', 'type': 0, 'categoryId': 5312, 'brandId': 7026, 'cateId': 1139, 'labelIds': [1], 'supplierId': 5233, 'attrMap': {'2009132223042203650': {'attrId': '2009132223042203650', 'attrName': '属性标题', 'attrValue': '123'}, '2009132223058980866': {'attrId': '2009132223058980866', 'attrName': '次要标题', 'attrValue': '123'}}, 'isGroup': 0, 'storeModel': '123', 'unitName': '123', 'isPromoteCommission': True, 'sort': 1, 'tableShow': 1, 'intro': '123', 'keyword': '123', 'deliveryType': 1, 'tempId': 1989, 'guaranteeIds': 286, 'image': 'https://ceph.huanxin.io:7580/crmebimage/public/product/2026/01/06/89c8d307e3af4a94bf8ca6c2216b9a31wplsappkda.jpg', 'sliderImage': '["https://ceph.huanxin.io:7580/crmebimage/public/product/2026/01/06/82b610ede0814afdbfb6002010efd6964dly81t7kz.png"]', 'specType': False, 'attrValue': [{'price': 123, 'otPrice': 11, 'cost': 2, 'quota': 5, 'stock': 111, 'volume': 1, 'weight': 1, 'fullCode': '123', 'barCode': '123', 'attrValue': '{"规格":"默认"}'}], 'attr': [{'attrName': '规格', 'attrValues': '默认'}], 'pickType': 'selfDelivery'}
+2026-01-08 13:17:11 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:12 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":200,"message":null,"data":null}

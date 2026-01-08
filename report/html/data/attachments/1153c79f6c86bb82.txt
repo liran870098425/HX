@@ -1,0 +1,10 @@
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:29] - ======================================================
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:30] - 接口url:https://test01-platform.huanxin.io:3443/api/api/admin/platform/producttag/save
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:31] - 接口method:post
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:32] - 接口headers:{'authori-zation': 'platformcf9ddf2c1d65497d87c682d9865f7165', 'Content-Type': 'application/json', 'origin': 'https://test01-platform.huanxin.io:3443'}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:33] - 接口params:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:34] - 接口data:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:35] - 接口json:{'tagName': 9921, 'timerange': ['2026-01-08 13:17:10', '2026-01-10 13:17:10'], 'sort': 1, 'playType': 'category', 'playProducts': 5312, 'position': 0, 'proBrandList': [5312], 'status': 1, 'tagNote': '这是说明', 'startTime': '2026-01-08 13:17:10', 'endTime': '2026-01-10 13:17:10'}
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:36] - 接口files:None
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:58] - 接口响应状态码:200
+2026-01-08 13:17:10 DEBUG [apiautotest] [client.py] [send:59] - 接口响应body:{"code":400,"message":"商品标签同时开启的不得超过5条","data":null}

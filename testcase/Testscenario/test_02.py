@@ -4,24 +4,26 @@
 # @author   : 李然 
 # @Time     :  16:45
 # @Copyright: 焕新生活
+import time
 
 import allure
 import pytest
-from api.Manager import ManagerCouponAddApi ,ProductCategoryListApi
+from api.Manager import ManagerCouponAddApi, ProductCategoryListApi, ManagerDeleteCouponApi
 from api.Manager.product_apis import MerchantPortAttributeAddApi, MerchantPortAttributeListApi, ProductTagSaveApi, \
-    ProductBrandListApi, ProductBrandAddApi
-from api.Manager.product_category_apis import ProductCategoryAddApi
+    ProductBrandListApi, ProductBrandAddApi, ProductBrandDeleteApi
+from api.Manager.product_category_apis import ProductCategoryAddApi, ProductCategoryDeleteApi
 from api.Merchant.brand_apis import BrandAddApi
-from api.Merchant.product_apis import ProductSaveApi, ProductUpApi
+from api.Merchant.product_apis import ProductSaveApi, ProductUpApi, ProductDeleteApi
 from api.Merchant.supplier_apis import SupplierAddAccountApi, SupplierAccountListApi, SupplierBrandAddApi
 from common.json_util import extract_json
-
+import jsonpath
+import json
 
 @allure.epic('优惠券场景')
 @allure.feature('优惠券模块-优惠券列表')
 @allure.story('优惠券测试')
 class TestProductCoupon:
-    pid = '' #分类ID
+    pid = '' #分类
     product_id = '' #商品ID
     main_attr = '' # 重要属性ID
     second_attr = '' # 次要属性ID
@@ -157,6 +159,8 @@ class TestProductCoupon:
         # 使用所有主要属性ID和次要属性ID
         api = ProductSaveApi(main_attrId=TestProductCoupon.main_attr, second_attrId=TestProductCoupon.second_attr)
         api.json['categoryId'] = TestProductCoupon.pid
+        api.json['brandId']  = TestProductCoupon.categoryIds
+        api.json['supplierId'] = TestProductCoupon.supplier_id
         resp = api.send()
         TestProductCoupon.product_id = db_init.select('select id from eb_product where name = %s limit 1', (api.json['name'],))[0]['id']
         print(f"这个是商品ID：{TestProductCoupon.product_id}")
@@ -171,12 +175,78 @@ class TestProductCoupon:
         print(f"上架商品 - Response2:", resp.json())
 
     @allure.title('添加优惠券')
-    def test_coupon_add(self):
+    def test_coupon_add(self, db_init):
         api = ManagerCouponAddApi(category=7)
         # 修改useGoods参数为1
         api.json['useGoods'] = 1
         # 追加categoryIds参数
         api.json['categoryIds'] = [TestProductCoupon.pid]
         resp = api.send()
+        TestProductCoupon.coupon_id = db_init.select('select id from eb_coupon where name = %s limit 1', (api.json['name'],))[0]['id']
         pytest.assume(resp.status_code == 200)
+        print(f"优惠券ID:{TestProductCoupon.coupon_id}")
         print(f"商品分类 - Response3:", resp.json())
+
+    @allure.title('删除优惠券')
+    def test_coupon_delete(self, redis_init):
+        res = ManagerDeleteCouponApi(TestProductCoupon.coupon_id).send()
+        # 断言，检查redis中merchantMenuList是否存在
+        try:
+            coupon = redis_init.get('merchantMenuList')
+            print(f'这个是优惠券返回值:{coupon}')
+            # 检查Redis中是否还存在相关数据
+            if coupon:
+                # 如果数据是字节串，需要解码
+                if isinstance(coupon, bytes):
+                    coupon_str = coupon.decode('utf-8')
+                else:
+                    coupon_str = coupon
+                # 尝试解析JSON数据
+                try:
+                    coupon_data = json.loads(coupon_str)
+                    print(f'解析后的优惠券数据:{coupon_data}')
+                except json.JSONDecodeError:
+                    print('无法解析Redis中的数据为JSON格式')
+                    coupon_data = None
+            else:
+                print('Redis中未找到merchantMenuList键或该键为空')
+        except BaseException as e:
+            print(f'获取Redis数据时出现异常: {e}')
+            # 检查是否有其他类似的键名
+            try:
+                # 获取所有键名以进行调试
+                all_keys = redis_init.r.keys('*menu*')
+                print(f'包含"menu"的键名: {all_keys}')
+
+                all_keys = redis_init.r.keys('*Merchant*')
+                print(f'包含"Merchant"的键名: {all_keys}')
+
+                all_keys = redis_init.r.keys('*Menu*')
+                print(f'包含"Menu"的键名: {all_keys}')
+
+                all_keys = redis_init.r.keys('*')
+                print(f'所有键名（前20个）: {all_keys[:20]}')
+            except Exception as ex:
+                print(f'尝试获取键名时出错: {ex}')
+
+        assert res.status_code == 200
+    @allure.title('删除商品')
+    def test_product_delete(self, redis_init):
+        res = ProductDeleteApi(product_id=TestProductCoupon.product_id).send()
+        # 断言，检查redis中merchantMenuList是否存在
+        pytest.assume(res.status_code == 200)
+        print(f"删除商品 - Response4:", res.json())
+
+    @allure.title('删除品牌')
+    def test_brand_delete(self, redis_init):
+        res = ProductBrandDeleteApi(brand_id=TestProductCoupon.categoryIds).send()
+        # 断言，检查redis中merchantMenuList是否存在
+        time.sleep(5)
+        pytest.assume(res.status_code == 200)
+        print(f"删除品牌 - Response6:", res.json())
+    @allure.title('删除商品分类')
+    def test_product_category_delete(self, redis_init):
+        res = ProductCategoryDeleteApi(categoryid = TestProductCoupon.pid).send()
+        # 断言，检查redis中merchantMenuList是否存在
+        pytest.assume(res.status_code == 200)
+        print(f"删除商品分类 - Response5:", res.json())

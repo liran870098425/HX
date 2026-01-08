@@ -46,7 +46,7 @@ class BaseManagerApi(RequestsClient):
         self.headers = {
             "authori-zation": BaseManagerApi.manager_token,
             "Content-Type": "application/json",
-            "referer": "https://test01-platform.huanxin.io:3443/vue2/marketing/platformCoupon/creatCouponPro",
+            # "referer": "https://test01-platform.huanxin.io:3443/vue2/marketing/platformCoupon/creatCouponPro",
             'origin':"https://test01-platform.huanxin.io:3443"
         }
 

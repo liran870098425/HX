@@ -5,7 +5,7 @@
 # @Time     : 2025/5/25 9:53
 # @Copyright: 焕新生活
 from api.base_api import BaseManagerApi
-from common.random_util import rdm_date, cur_date_time, rdm_date_plus_2days, cur_timestamp
+from common.random_util import rdm_date, cur_date_time, rdm_date_plus_2days, cur_timestamp, rdm_four_digit
 import datetime
 
 
@@ -28,7 +28,7 @@ class ManagerCouponAddApi(BaseManagerApi):
                             "provinces": [],
                             "cities": [],
                             "districts": [],
-                            "name": "测试补贴券",
+                            "name": f"测试补贴券{rdm_four_digit()}",
                             "category": category, #类别 1-商家券, 2-商品券, 3-通用券，4-品类券，5-品牌券，6-跨店券,7-补贴
                             "money": 1,
                             "minPrice": 0,

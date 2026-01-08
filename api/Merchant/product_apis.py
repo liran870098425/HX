@@ -18,8 +18,8 @@ class ProductSaveApi(BaseMerchantApi):
         self.json = {
                     "name": f"商品{rdm_five_digit()}",
                     "type": 0,
-                    "categoryId": 4876,
-                    "brandId": 6968,
+                    "categoryId": 4876, # 商品分类ID
+                    "brandId": 6968,  # 商品品牌ID
                     "cateId": 1139,
                     "labelIds": [
                         1

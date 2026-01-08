@@ -166,7 +166,7 @@ class ProductBrandDeleteApi(BaseManagerApi):
     """删除品牌【删】"""
     def __init__(self, brand_id):
         super().__init__()
-        self.url = f'{self.host}/api/api/admin/platform/product/brand/delete/{brand_id}'
+        self.url = f'{self.host}/api/admin/platform/product/brand/delete/{brand_id}'
         self.method = 'post'
 
 

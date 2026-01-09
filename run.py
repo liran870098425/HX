@@ -49,5 +49,19 @@ if __name__ == '__main__':
     allure_cmd = os.path.join('allure', 'allure-2.24.0', 'bin', 'allure.bat')  # 使用相对路径更安全
     subprocess.run([allure_cmd, 'generate', 'report/data', '-o', 'report/html', '--clean'], env=env)
 
-    # 打开报告
-    subprocess.run([allure_cmd, 'open', 'report/html'], env=env)
+    # 打开报告，本地调试
+    # subprocess.run([allure_cmd, 'open', 'report/html'], env=env)
+    # 执行测试报告通知发送
+    # 导入通知模块并发送钉钉通知
+    try:
+        from notice_res import DingDingNotice
+        # 读取测试结果统计
+        import yaml
+        with open('result.yml', 'r', encoding='utf-8') as f:
+            result_data = yaml.safe_load(f)
+        # 发送钉钉通知，包含测试结果统计
+        DingDingNotice().send(job_name = '接口自动化测试',user = '测试',build_url = 'http://192.168.3.101' )
+    except ImportError:
+        print('未能导入通知模块，跳过发送通知')
+    except Exception as e:
+        print(f'发送测试报告通知失败: {e}')

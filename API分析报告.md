@@ -52,6 +52,7 @@ class ManagerLoginApi(BaseManagerApi):
                 "token": ""
             }
         }
+ManagerLoginApi(username="admin",password=123456)
 ```
 
 **集成方式**:
@@ -108,7 +109,7 @@ products = response.json()
 ```python
 class PlatformAdminSaveApi(BaseManagerApi):
     """新增管理员【增】"""
-    def __init__(self, account="account", pwd="pwd", real_name="陈亚静0507", roles="4", status=False):
+    def __init__(self, account, pwd, real_name="陈亚静0507", roles="4", status=False):
         super().__init__()
         self.url = f'{self.host}/api/admin/platform/admin/save'
         self.method = 'post'

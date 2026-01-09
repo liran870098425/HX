@@ -15,6 +15,7 @@ from api.Manager.product_category_apis import ProductCategoryAddApi, ProductCate
 from api.Merchant.brand_apis import BrandAddApi
 from api.Merchant.product_apis import ProductSaveApi, ProductUpApi, ProductDeleteApi
 from api.Merchant.supplier_apis import SupplierAddAccountApi, SupplierAccountListApi, SupplierBrandAddApi
+from common.assert_utils import AssertUtils
 from common.json_util import extract_json
 import jsonpath
 import json
@@ -181,6 +182,7 @@ class TestProductCoupon:
         api.json['useGoods'] = 1
         # 追加categoryIds参数
         api.json['categoryIds'] = [TestProductCoupon.pid]
+        api.json['receiveType'] = 2
         resp = api.send()
         TestProductCoupon.coupon_id = db_init.select('select id from eb_coupon where name = %s limit 1', (api.json['name'],))[0]['id']
         pytest.assume(resp.status_code == 200)
@@ -249,4 +251,11 @@ class TestProductCoupon:
         res = ProductCategoryDeleteApi(categoryid = TestProductCoupon.pid).send()
         # 断言，检查redis中merchantMenuList是否存在
         pytest.assume(res.status_code == 200)
+        pytest.assume(res.json())
+        AssertUtils.assert_status_code(actual_code = res.status_code, expected_code =200,case_desc = '删除商品分类接口，状态码断言200')
+        AssertUtils.assert_response_field(resp_json = res.json(), required_fields = ['code', 'message', 'data'], case_desc = '删除商品分类接口，接口相应核心字段断言')
+        AssertUtils.assert_value_equal(actual = res.json()['code'], expected = 6202, check_desc = '删除商品分类接口，code断言')
+        AssertUtils.assert_value_in(actual=res.json()['message'], container = '有品牌关联该分类，无法删除' , check_desc = '删除商品分类接口，message断言')
         print(f"删除商品分类 - Response5:", res.json())
+
+

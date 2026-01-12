@@ -48,7 +48,6 @@ if __name__ == '__main__':
         env.pop('JAVA_HOME', None)
     allure_cmd = os.path.join('allure', 'allure-2.24.0', 'bin', 'allure.bat')  # 使用相对路径更安全
     subprocess.run([allure_cmd, 'generate', 'report/data', '-o', 'report/html', '--clean'], env=env)
-
     # 打开报告，本地调试
     # subprocess.run([allure_cmd, 'open', 'report/html'], env=env)
     # 执行测试报告通知发送
@@ -65,3 +64,4 @@ if __name__ == '__main__':
         print('未能导入通知模块，跳过发送通知')
     except Exception as e:
         print(f'发送测试报告通知失败: {e}')
+    print('测试报告生成成功，请查看report/html目录下的报告')
